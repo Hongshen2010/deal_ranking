@@ -55,7 +55,7 @@ Since the rawly crawled data contains many dump words, I have to run several scr
 Then remove the stop words from the files.    
 
 For **ranking** the IR results, I will try simple **tf*idf** modle first.    
-Since some pieces of deals may contain coupons codes in the des, such deals will appear in a more significant position than those without a
+Since some pieces of deals may contain coupons codes in the description tag, such deals will appear in a more significant position than those without a
 explicit coupon code.     
 For example:
 
