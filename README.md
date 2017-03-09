@@ -1,6 +1,6 @@
 Github repository:  [deal_ranking](https://github.com/Hongshen2010/deal_ranking/blob/master/README.md)    
 
-My project is a light-weight searchc engine for deal and discount imformation.    
+My project is a light-weight searchc engine for deals and discount imformation.    
 The main function is returning the deal imformation based on the key words(queries) input by the user.
 The project contains two part.     
     
@@ -39,14 +39,14 @@ The following is an example of one piece of the parsed deals.
     
         
 ```JSON
-[{
-        "description": "Horchow offers Extra 25% Off Towel Sale. Deal ends 3/9 9:59.",     
-        "item": ["Towel Sale @ Horchow"],    
-        "imag": ["http://imgcache.dealmoon.com/fsvr.dealmoon.com/dealmoon/11e/6ec/3e9/044/bac/f76/d2c/9f1/f20/49 /2c.jpg_300_0_13_62cc.jpg"],    
-        "feature": [],    
-        "discount": "Extra 25% Off + Free Shipping",    
-        "link": "http://www.dealmoon.com/exec/j/?d=610310" 
-}]
+{
+    "description": "Horchow offers Extra 25% Off Towel Sale. Deal ends 3/9 9:59.",     
+    "item": ["Towel Sale @ Horchow"],    
+    "imag": ["http://imgcache.dealmoon.com/fsvr.dealmoon.com/dealmoon/11e/6ec/3e9/044/bac/f76/d2c/9f1/f20/49 /2c.jpg_300_0_13_62cc.jpg"],    
+    "feature": [],    
+    "discount": "Extra 25% Off + Free Shipping",    
+    "link": "http://www.dealmoon.com/exec/j/?d=610310" 
+}
 ```
         
 
@@ -54,11 +54,26 @@ So far, I have collected about 3000 pieces of deals from a few websites which co
 Since the rawly crawled data contains many dump words, I have to run several scripts to deal with it.  
 Then remove the stop words from the files.    
 
-For **ranking** the IR results, I will try simple ***tf*idf*** modle first.    
-The raw data stored in several big .json files. Therefore, I need to split the single .json file into 
-many small parts, recording the frequency of each word in each small file and then merge them together.   
+For **ranking** the IR results, I will try simple **tf*idf** modle first.    
+Since some pieces of deals may contain coupons codes in the des, such deals will appear in a more significant position than those without a
+explicit coupon code.     
+For example:
+
+```JSON
+{
+    "description": "Sephora.com offers the Yves Saint Laurent Vinyl Cream Lip Stain 
+                    via coupon code \"BARECLASSIC\".",
+    "item": ["Yves Saint Laurent Volupt  Tint-in-Balm @ Sephora.com"],
+    "imag": ["http://imgcache.dealmoon.com/fsvr.dealmoon.com/dealmoon/ec9/161/467/c0d/2b0/59e/f39/dae/8b3/102/14.jpg_300_0_13_73c0.jpg"],
+    "feature": [],
+    "discount": "$34",
+    "link": "http://www.dealmoon.com/exec/j/?d=610026"
+}
+```
+The raw data stored in several big .json files. Therefore, I need to split these big .json files into 
+many small parts, recording the statistical information of each word in each small file and then merge them together.   
 When doing the counting I will use some stemming tools to reduce the vocabulary pool.
-I am currently under the process of designing the data structure for this.    
+I am currently under the process of designing the data structure for this process.    
 
 I also made a simple demo to define the way of showing the search results. This demo is based on flask and sqlite.
 
