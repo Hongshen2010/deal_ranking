@@ -54,4 +54,4 @@ Search result rendering, key word is dell. For here, I use the sql query to do t
 ```SQL
 SELECT * From coupons WHERE item LIKE \'%' + ide + '%\'
 ```    
-![alt text](https://github.com/Hongshen2010/deal_ranking/blob/master/2017-03-08%2022-02-21_dell.png =129x105)
+![alt text](https://github.com/Hongshen2010/deal_ranking/blob/master/2017-03-08%2022-02-21_dell.png?raw=true)
