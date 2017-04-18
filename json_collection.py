@@ -23,7 +23,7 @@ class json_search():
                         'the', 'with', 'by', 'up', 'us',
                         'per','each','all', 'via', 'are',
                         'was', 'were', 'in', 'any','not',
-                        'or', 'been', 'on', 'for'
+                        'or', 'been', 'on', 'for', 'offer'
                        ]
         stemmer = Stemmer.Stemmer('english')
         # Replace all unnecessary dots.
@@ -81,6 +81,7 @@ class json_search():
             else: pass
             tmp_dict.pop('', None)
             self.word_dict.append(dict(tmp_dict))
+
 
 # Find all occurences of a sub_string(or word) in a string.
 def find_all_sub(string, sub_string, indeces):
