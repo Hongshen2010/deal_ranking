@@ -24,6 +24,7 @@ class json_search():
                         'per','each','all', 'via', 'are',
                         'was', 'were', 'in', 'any','not',
                         'or', 'been', 'on', 'for', 'offer'
+                        'that', 'com', 'offer', 'your'
                        ]
         stemmer = Stemmer.Stemmer('english')
         # Replace all unnecessary dots.
@@ -59,10 +60,11 @@ class json_search():
             tmp_dict = {}
             # Description
             if len(self.data[i]['description']) != 0:
-                des = self.normalize_str(self.data[i]['description'][0])
-                des_str = ' '.join(des)
-                for word in des: 
-                    self.insert_word(word, tmp_dict)
+                for sub_str in self.data[i]['description']:
+                    des = self.normalize_str(sub_str)
+                    des_str = ' '.join(des)
+                    for word in des: 
+                        self.insert_word(word, tmp_dict)
             else: pass
             # item name
             if len(self.data[i]['item']) != 0:
@@ -81,6 +83,9 @@ class json_search():
             else: pass
             tmp_dict.pop('', None)
             self.word_dict.append(dict(tmp_dict))
+    # Helper for test.
+    def print_item(self, id):
+        return dict(self.word_dict[id])
 
 
 # Find all occurences of a sub_string(or word) in a string.
@@ -100,13 +105,12 @@ def find_all_sub(string, sub_string, indeces):
 def main():
     data = []
     word_dict = []
-    search_test = json_search(data, word_dict, 'test.json')
-    start = time.time()
+    search_test = json_search(data, word_dict, 'dm_modified.json')
+    # start = time.time()
     search_test.record_wordsandPosition()
-    end = time.time()
-    print end - start
+    # end = time.time()
+    # print end - start
     print search_test.word_dict
-    print len(search_test.word_dict)
 
 
 if __name__ == '__main__':

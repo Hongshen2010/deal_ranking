@@ -34,20 +34,31 @@ class tf_idf(object):
 
     # Calculate tf*idf
     def cal_tf_idf(self, word_space, word_dict):
-        vocabular_size = 0
-        N = len(self.word_dict)
-        for item in self.word_space.items():
-            vocabular_size += item[1][0]
+        # vocabular_size = 0
+        # for item in self.word_space.items():
+            # vocabular_size += item[1][0]
+        N = float(len(self.word_dict))
         for i in range(0, len(self.word_dict)):
             for item in self.word_dict[i].items():
-                nk = len(word_space[item[0]][1])
-                tf = item[1][0]
+                nk = float(len(word_space[item[0]][1]))
+                tf = float(item[1][0])
                 idf = math.log10(N/nk)
                 item[1].append(tf*idf)
     # Normalize the tf*idf weights
-    # def normalize_tfidf(self, word_space, word_dict):
-        
-    
+    def normalize_tfidf(self, word_space, word_dict):
+        for item in self.word_space.items():
+            square_sum = 0
+            for id in item[1][1]:
+                square_sum += math.pow(self.word_dict[id][item[0]][2], 2)
+            # print square_sum
+            for id in item[1][1]:
+                if square_sum == 0: pass
+                else: self.word_dict[id][item[0]][2] /= math.sqrt(square_sum)
+    # Helper for test.
+    def print_item(self, id):
+        return dict(self.word_dict[id])
+
+
 # Test
 def main():
     data = []
@@ -59,7 +70,14 @@ def main():
     tfidf_test.getVocabulary(word_dict)
     tfidf_test.add_contain_info(word_space, word_space)
     tfidf_test.cal_tf_idf(word_space, word_dict)
+    tfidf_test.normalize_tfidf(word_space, word_dict)
     print tfidf_test.word_dict
+    # print tfidf_test.word_space
+    # print tfidf_test.word_dict[0]
+    # print tfidf_test.word_dict[1]
+    # print tfidf_test.word_dict[2]
+    # print tfidf_test.word_dict[3]
+
 
 if __name__ == '__main__':
     main()
