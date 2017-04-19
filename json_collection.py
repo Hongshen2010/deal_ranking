@@ -85,7 +85,7 @@ class json_search():
             self.word_dict.append(dict(tmp_dict))
     # Helper for test.
     def print_item(self, id):
-        return dict(self.word_dict[id])
+        return dict(self.data[id])
 
 
 # Find all occurences of a sub_string(or word) in a string.

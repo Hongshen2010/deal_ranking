@@ -64,7 +64,7 @@ def main():
     data = []
     word_dict = []
     word_space = {}
-    search_test = json_collection.json_search(data, word_dict, 'test.json')
+    search_test = json_collection.json_search(data, word_dict, 'dm_modified.json')
     search_test.record_wordsandPosition()
     tfidf_test = tf_idf(word_dict, word_space)
     tfidf_test.getVocabulary(word_dict)
