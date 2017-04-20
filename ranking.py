@@ -4,9 +4,9 @@ import json_collection
 # Define the calculation of tf*idf weights.
 class tf_idf(object):
     # Constructor
-    def __init__(self, word_dict, word_space):
+    def __init__(self, word_dict):
         self.word_dict = word_dict
-        self.word_space = word_space
+        self.word_space = {}
     
     # Insert 
     def insertItem(self, item):
@@ -19,12 +19,12 @@ class tf_idf(object):
     # Get the vocabulary pool.
     # Every string appears in the word_dict and their overall times.
     # Informations are stored in a list.
-    def getVocabulary(self, word_dict):
+    def getVocabulary(self):
         for i in range(0, len(self.word_dict)):
             for item in self.word_dict[i].items():
                 self.insertItem(item)
     # For every word in word_dict, attach the item id which contains this word.
-    def add_contain_info(self, word_space, word_dict):
+    def add_contain_info(self):
         for item in self.word_space.items():
             contain_list = []
             for i in range(0, len(self.word_dict)):
@@ -33,19 +33,19 @@ class tf_idf(object):
             item[1].append(list(contain_list))
 
     # Calculate tf*idf
-    def cal_tf_idf(self, word_space, word_dict):
+    def cal_tf_idf(self):
         # vocabular_size = 0
         # for item in self.word_space.items():
             # vocabular_size += item[1][0]
         N = float(len(self.word_dict))
         for i in range(0, len(self.word_dict)):
             for item in self.word_dict[i].items():
-                nk = float(len(word_space[item[0]][1]))
+                nk = float(len(self.word_space[item[0]][1]))
                 tf = float(item[1][0])
                 idf = math.log10(N/nk)
                 item[1].append(tf*idf)
     # Normalize the tf*idf weights
-    def normalize_tfidf(self, word_space, word_dict):
+    def normalize_tfidf(self):
         for item in self.word_space.items():
             square_sum = 0
             for id in item[1][1]:
@@ -61,16 +61,24 @@ class tf_idf(object):
 
 # Test
 def main():
-    data = []
-    word_dict = []
-    word_space = {}
-    search_test = json_collection.json_search(data, word_dict, 'dm_modified.json')
+    
+    # Parsing the collected json data file
+    search_test = json_collection.json_search('test.json')
+    # record words' information
     search_test.record_wordsandPosition()
-    tfidf_test = tf_idf(word_dict, word_space)
-    tfidf_test.getVocabulary(word_dict)
-    tfidf_test.add_contain_info(word_space, word_space)
-    tfidf_test.cal_tf_idf(word_space, word_dict)
-    tfidf_test.normalize_tfidf(word_space, word_dict)
+
+    # Weight computations
+    # construct an object for weight calculation
+    tfidf_test = tf_idf(search_test.word_dict)
+    # helpers
+    tfidf_test.getVocabulary()
+    tfidf_test.add_contain_info()
+    # tf*idf weight calculation
+    tfidf_test.cal_tf_idf()
+    # normalize tf*idf weights
+    tfidf_test.normalize_tfidf()
+
+    # tests
     print tfidf_test.word_dict
     # print tfidf_test.word_space
     # print tfidf_test.word_dict[0]

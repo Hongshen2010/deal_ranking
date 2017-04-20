@@ -41,13 +41,17 @@ with open('dm_test.json', 'r') as f:
             item['feature'][0] = remove_unicode_reserved_word(item['feature'][0])
         else: pass
         
-        # parse description attribute
+        # parse discount attribute
         if len(item['discount']) !=0:
             des = ""
             for element in item['discount']:
                 des += element
             item['discount'] = remove_newline(des)
             item['discount'] = remove_unicode_reserved_word(item['discount'])
+            item['discount'] = re.sub(ur'\(,\s', ur' (', item['discount'], re.UNICODE)
+            remove_spaces = re.search(r'\)(\s)+', item['discount'])
+            if remove_spaces is not None:
+                item['discount'] = item['discount'].replace(remove_spaces.group(1), '')
         else: pass
 
 with open('dm_modified.json', 'w+') as fm:

@@ -98,4 +98,5 @@ ENV/
 /site
 
 # visual studio configuration file
+.vscode
 .vscode/

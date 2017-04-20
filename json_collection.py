@@ -6,8 +6,8 @@ import Stemmer
 
 class json_search():
     # constructor
-    def __init__(self, data, word_dict, json_file):
-        self.word_dict = word_dict
+    def __init__(self, json_file):
+        self.word_dict = []
         with open(json_file, 'r') as f:
             self.data = json.load(f)
     
@@ -103,9 +103,8 @@ def find_all_sub(string, sub_string, indeces):
 
 # TEST
 def main():
-    data = []
-    word_dict = []
-    search_test = json_search(data, word_dict, 'dm_modified.json')
+    
+    search_test = json_search('test.json')
     # start = time.time()
     search_test.record_wordsandPosition()
     # end = time.time()

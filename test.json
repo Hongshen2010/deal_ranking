@@ -1,6 +1,8 @@
 [
     {
-        "description": ["BookingBuddy offers the  Roundtrip Ticket from Denver to Dallas for $57.Frontier Airline.Example date: 4/6-4/11.Book now."],
+        "description": [
+            "BookingBuddy offers the  Roundtrip Ticket from Denver to Dallas for $57.Frontier Airline.Example date: 4/6-4/11.Book now."
+        ],
         "item": [
             "Roundtrip Ticket from Denver to Dallas"
         ],
@@ -12,19 +14,31 @@
         "link": "http://www.dealmoon.com/exec/j/?d=614469"
     },
     {
-        "description": ["Best of Orlando offers buy 2 days, get 2 days free Universal Orlando Resort: 2-Park Tickets.Universal Studios Florida and Islands of Adventure.Book now."],
+        "description": [
+            "Earn 50,000 bonus points after you spend $4,000 on purchases in the first 3 months from account opening. That's $625 toward travel when you redeem through Chase Ultimate Rewards",
+            "Named Best Credit Card for Flexible Travel Redemption - Kiplinger's Personal Finance, July 2016",
+            "2X points on travel and dining at restaurants worldwide & 1 point per dollar spent on all other purchases.",
+            "Earn 5,000 bonus points after you add the first authorized user and make a purchase in the first 3 months from account opening",
+            "No foreign transaction fees",
+            "1:1 point transfer to leading airline and hotel loyalty programs",
+            "Get 25% more value when you redeem for airfare, hotels, car rentals and cruises through Chase Ultimate Rewards. For example, 50,000 points are worth $625 toward travel",
+            "No blackout dates or travel restrictions - as long as there's a seat on the flight, you can book it through Chase Ultimate Rewards",
+            "Apply Now"
+        ],
         "item": [
-            "Universal Orlando Resort: 2-Park Tickets"
+            "Chase Sapphire Preferred Card Offers 2X points on travel and dining"
         ],
         "imag": [
-            "http://imgcache.dealmoon.com/thumbimg.dealmoon.com/dealmoon/00a/6b3/026/eb4967a9a1d98395ead001f.jpg_300_0_13_7e55.jpg"
+            "http://imgcache.dealmoon.com/fsvr.dealmoon.com/dealmoon/615/2a1/907/e27/aeb/947/8af/839/73d/ab8/46.jpg_300_0_13_0a5b.jpg"
         ],
         "feature": [],
-        "discount": "Buy 2 days, get 2 days FREE",
-        "link": "http://www.dealmoon.com/exec/j/?d=614816"
+        "discount": "50,000 bonus points",
+        "link": "http://www.dealmoon.com/exec/j/?d=523274"
     },
     {
-        "description": ["Amazon.com offers the  Lansinoh mOmma Straw Cup with Dual Handles, Green for $6.99.Free Shipping on orders over $35."],
+        "description": [
+            "Amazon.com offers the  Lansinoh mOmma Straw Cup with Dual Handles, Green for $6.99.Free Shipping on orders over $35."
+        ],
         "item": [
             "Lansinoh mOmma Straw Cup with Dual Handles, Green"
         ],
@@ -34,11 +48,13 @@
         "feature": [
             "In and Out system stores the straw within the lid to prevent leaks while ensuring maximum hygiene. Rounded ergonomic shape and soft-grip handles easy for baby's hands to grasp."
         ],
-        "discount": "$6.99(, 30% off)            ",
+        "discount": "$6.99 (30% off)            ",
         "link": "http://www.dealmoon.com/exec/j/?d=618194"
     },
     {
-        "description": ["Adorama offers the  Lenovo ThinkCentre M700 Tiny Desktop(i3 6100T, 4GB DDR4, 500GB HDD,Win10 Pro) for $319.99.Free shipping."],
+        "description": [
+            "Adorama offers the  Lenovo ThinkCentre M700 Tiny Desktop(i3 6100T, 4GB DDR4, 500GB HDD,Win10 Pro) for $319.99.Free shipping."
+        ],
         "item": [
             "Lenovo ThinkCentre M700 Tiny Desktop(i3 6100T, 4GB DDR4, 500GB HDD, Win10 Pro)"
         ],
@@ -48,7 +64,7 @@
         "feature": [
             "i3-6100T 3.2GHz, 4GBDDR4(supports up to 32GB), 128GB SSD;Gigabit Ethernet,802.11ac; 6 x USB3.0, 2 x DP; Windows 10 Professional (64-bit)."
         ],
-        "discount": "$319.99(, 20% off)            ",
+        "discount": "$319.99 (20% off)            ",
         "link": "http://www.dealmoon.com/exec/j/?d=618254"
     }
 ]
