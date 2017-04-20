@@ -2,7 +2,7 @@ import math
 import json_collection
 
 # Define the calculation of tf*idf weights.
-class tf_idf(object):
+class weight_cal(object):
     # Constructor
     def __init__(self, word_dict):
         self.word_dict = word_dict
@@ -69,7 +69,7 @@ def main():
 
     # Weight computations
     # construct an object for weight calculation
-    tfidf_test = tf_idf(search_test.word_dict)
+    tfidf_test = weight_cal(search_test.word_dict)
     # helpers
     tfidf_test.getVocabulary()
     tfidf_test.add_contain_info()
@@ -79,8 +79,8 @@ def main():
     tfidf_test.normalize_tfidf()
 
     # tests
-    print tfidf_test.word_dict
-    # print tfidf_test.word_space
+    # print tfidf_test.word_dict
+    print tfidf_test.word_space
     # print tfidf_test.word_dict[0]
     # print tfidf_test.word_dict[1]
     # print tfidf_test.word_dict[2]

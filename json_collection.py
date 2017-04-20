@@ -63,7 +63,7 @@ class json_search():
                 for sub_str in self.data[i]['description']:
                     des = self.normalize_str(sub_str)
                     des_str = ' '.join(des)
-                    for word in des: 
+                    for word in des:
                         self.insert_word(word, tmp_dict)
             else: pass
             # item name
@@ -85,7 +85,7 @@ class json_search():
             self.word_dict.append(dict(tmp_dict))
     # Helper for test.
     def print_item(self, id):
-        return dict(self.data[id])
+        return dict(self.data[id]), self.word_dict[id]
 
 
 # Find all occurences of a sub_string(or word) in a string.
@@ -109,7 +109,8 @@ def main():
     search_test.record_wordsandPosition()
     # end = time.time()
     # print end - start
-    print search_test.word_dict
+    # print search_test.word_dict
+    print search_test.print_item(0)
 
 
 if __name__ == '__main__':

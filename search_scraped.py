@@ -2,11 +2,6 @@ import re
 import json
 import unicodedata
 
-# Define characters to ignore
-dump_chars = ['&', '']
-
-# Define rgex to parse the scraped data
-
 def remove_unicode_reserved_word(string):
     string = string.encode('ascii', 'ignore')
     return string
