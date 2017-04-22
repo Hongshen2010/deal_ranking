@@ -85,7 +85,7 @@ class json_search():
             self.word_dict.append(dict(tmp_dict))
     # Helper for test.
     def print_item(self, id):
-        return dict(self.data[id]), self.word_dict[id]
+        return dict(self.data[id])
 
 
 # Find all occurences of a sub_string(or word) in a string.
@@ -104,13 +104,13 @@ def find_all_sub(string, sub_string, indeces):
 # TEST
 def main():
     
-    search_test = json_search('test.json')
+    search_test = json_search('dm_modified.json')
     # start = time.time()
     search_test.record_wordsandPosition()
     # end = time.time()
     # print end - start
     # print search_test.word_dict
-    print search_test.print_item(0)
+    print search_test.print_item(1379)
 
 
 if __name__ == '__main__':

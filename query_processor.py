@@ -1,4 +1,5 @@
 import re
+import sys
 from sets import Set
 import math
 import ranking
@@ -32,7 +33,7 @@ class query_engine(object):
         self.query_string = ' '.join(words)
     # comparison function of item ids
     # input: an item id
-    def rank_cmp(self, id):
+    def id_cmp(self, id):
         words = self.query_string.split()
         score = 0
         for word in words:
@@ -51,17 +52,19 @@ class query_engine(object):
                 for id in ids:
                     self.item_ids.add(id)
             else: pass
-        return sorted(self.item_ids, key=self.rank_cmp)
+        return sorted(self.item_ids, reverse=True, key=self.id_cmp)
 
-# Test
+# Test for searching and ranking
+# Itype in query string, rtype is ranked item ids.
 def main():
-    query_test = query_engine('test.json')
-    query_test.query_parsing("earn momma")
-    print query_test.query_processing()
-    # print query_test.item_ids
-    # print query_test.word_dict
-    # print query_test.word_space
-    # print query_test.query_string
+    print "Initializing data..."
+    query_test = query_engine('dm_modified.json')
+    while True:
+        inputs = raw_input("Input what you want to search: ")
+        query_test.query_parsing(inputs)
+        print "Results of", inputs, ":"
+        print query_test.query_processing()
+        # print query_test.item_ids
 
 if __name__ == '__main__':
     main()
