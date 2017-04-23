@@ -45,8 +45,8 @@ class CouponSpider(scrapy.Spider):
                 'feature': coupons.xpath('.//div[@class="minfor  event_statistics"]/p[last()]/text()').extract()
             }
         
-        # next_page_number = str(self.increment_page_number())
-        # next_page = "http://www.dealmoon.com/" + next_page_number
-        # if next_page is not None:
-        #     next_page = response.urljoin(next_page)
-        #     yield scrapy.Request(next_page, callback=self.parse)
+        next_page_number = str(self.increment_page_number())
+        next_page = "http://www.dealmoon.com/" + next_page_number
+        if next_page is not None:
+            next_page = response.urljoin(next_page)
+            yield scrapy.Request(next_page, callback=self.parse)

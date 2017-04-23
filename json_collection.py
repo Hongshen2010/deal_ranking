@@ -110,7 +110,7 @@ def main():
     # end = time.time()
     # print end - start
     # print search_test.word_dict
-    print search_test.print_item(1379)
+    print search_test.print_item(int(sys.argv[1]))
 
 
 if __name__ == '__main__':

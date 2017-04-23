@@ -14,7 +14,7 @@ def remove_newline(string):
         string = string.replace(match.group(), "")
         return remove_newline(string)
         
-with open('dm_test.json', 'r') as f:
+with open('dealmoon.json', 'r') as f:
     data = json.load(f)
     for item in data:
         

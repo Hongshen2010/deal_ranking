@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+    body{
+        font-family:"Trebuchet MS", "Myriad Pro", Arial, sans-serif;
+        font-size:18px;
+        color:#333;
+        text-shadow:1px 1px 1px #fff;
+        overflow-y:scroll;
+    }
+    h1{
+        font-size:56px;
+        text-align:center;
+    }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+ <div class="jumbotron">
+{% block content %}
+<h1>Deals from your keyword</h1>
+<br>
+{% if not posts %}
+<p style="font-size:23px;color:red;">No deal is related to your keyword! Please try another one!</p>
+{% else %}
+{% for post in posts%}
+  <table>
+        <tr>
+             <td rowspan="6"><img src="{{ post.img }}" style="width:220px;height:200px;">&emsp;<br></td>
+             <td span style="font-size:23px;color:pink;">{{ post.item }}<br></td>
+        </tr>
+        <tr>
+             <td><a href="{{ post.link }}" target="_blank">Item Link</a><br></td>
+        </tr>
+        <tr>
+             <td>{{ post.description }}<br></td>
+        </tr>
+        <tr>
+             <td>{{ post.feature }}<br></td>
+        </tr>
+<br>
+</table>
+{% endfor %}
+{% endif %}
+<br />
+<a href="http://localhost:5000/search/" style="float:right;">Return to search page</a>
+{% endblock %}
+
+</div></div>
+
+</body>
+</html>
