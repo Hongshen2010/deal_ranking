@@ -37,9 +37,12 @@ class query_engine(object):
         words = self.query_string.split()
         score = 0
         for word in words:
-            # counts = words.count(word)
+            counts = words.count(word)
             if word in self.word_dict[id]:
-                score += self.word_dict[id][word][2]
+                score += counts * self.word_dict[id][word][2]
+                # deal with item which contains coupon keyword
+                if 'coupon' in self.word_dict[id]:
+                    score += 1
             else: pass
         return score
     # query processing

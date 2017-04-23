@@ -14,15 +14,15 @@ def remove_newline(string):
         string = string.replace(match.group(), "")
         return remove_newline(string)
         
-with open('dealmoon.json', 'r') as f:
+with open('test.json', 'r') as f:
     data = json.load(f)
     for item in data:
         
         # parse description attribute
         if len(item['description']) != 0:
-            des = []
+            des = [""]
             for string_part in item['description']:
-                des.append(remove_unicode_reserved_word(string_part))
+                des[0] += (remove_unicode_reserved_word(string_part) + " ")
             item['description'] = des
         else: pass
 
@@ -49,6 +49,6 @@ with open('dealmoon.json', 'r') as f:
                 item['discount'] = item['discount'].replace(remove_spaces.group(1), '')
         else: pass
 
-with open('dm_modified.json', 'w+') as fm:
+with open('test_modified.json', 'w+') as fm:
     json.dump(data, fm)
     

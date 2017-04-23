@@ -60,11 +60,10 @@ class json_search():
             tmp_dict = {}
             # Description
             if len(self.data[i]['description']) != 0:
-                for sub_str in self.data[i]['description']:
-                    des = self.normalize_str(sub_str)
-                    des_str = ' '.join(des)
-                    for word in des:
-                        self.insert_word(word, tmp_dict)
+                des = self.normalize_str(self.data[i]['description'][0])
+                des_str = ' '.join(des)
+                for word in des:
+                    self.insert_word(word, tmp_dict)
             else: pass
             # item name
             if len(self.data[i]['item']) != 0:
@@ -110,7 +109,9 @@ def main():
     # end = time.time()
     # print end - start
     # print search_test.word_dict
-    print search_test.print_item(int(sys.argv[1]))
+    if len(sys.argv) > 1:
+        print search_test.print_item(int(sys.argv[1]))
+    else: pass
 
 
 if __name__ == '__main__':
