@@ -16,6 +16,7 @@ class query_engine(object):
         getWeight.add_contain_info()
         getWeight.cal_tf_idf()
         getWeight.normalize_tfidf()
+        self.data = parse_json.data
         self.word_dict = getWeight.word_dict
         self.word_space = getWeight.word_space
         self.query_string = ""
@@ -56,18 +57,24 @@ class query_engine(object):
                     self.item_ids.add(id)
             else: pass
         return sorted(self.item_ids, reverse=True, key=self.id_cmp)
+    # helper to display the search results
+    # input: a list of item ids
+    # rtype: items
+    def search_results(self, id):
+        return self.data[id]
 
 # Test for searching and ranking
 # Itype in query string, rtype is ranked item ids.
 def main():
     print "Initializing data..."
-    query_test = query_engine('dm_modified.json')
-    while True:
-        inputs = raw_input("Input what you want to search: ")
-        query_test.query_parsing(inputs)
-        print "Results of", inputs, ":"
-        print query_test.query_processing()
-        # print query_test.item_ids
+    query_test = query_engine('test.json')
+    print query_test.data[1]['item']
+    # while True:
+    #     inputs = raw_input("Input what you want to search: ")
+    #     query_test.query_parsing(inputs)
+    #     print "Results of", inputs, ":"
+    #     print query_test.query_processing()
+    #     # print query_test.item_ids
 
 if __name__ == '__main__':
     main()
