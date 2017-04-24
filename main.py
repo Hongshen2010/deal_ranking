@@ -20,8 +20,8 @@ def display(ide = 'title'):
     item_id_list = query.query_processing()  # rtype: list
     # cur = g.db.execute(command)
     # posts = [dict(item=row[0], img=row[1], link=row[2], description=row[3], feature=row[4]) for row in cur.fetchall()]
-    posts = [dict(item=query.data[id]['item'], 
-                  imag=query.data[id]['imag'], 
+    posts = [dict(item=query.data[id]['item'][0], 
+                  imag=query.data[id]['imag'][0], 
                   link=query.data[id]['link'],
                   description=query.data[id]['description'], 
                   feature=query.data[id]['feature']) for id in item_id_list]

@@ -42,8 +42,8 @@ class query_engine(object):
             if word in self.word_dict[id]:
                 score += counts * self.word_dict[id][word][2]
                 # deal with item which contains coupon keyword
-                if 'coupon' in self.word_dict[id]:
-                    score += 1
+                # if 'coupon' in self.word_dict[id]:
+                    # score += 1
             else: pass
         return score
     # query processing
@@ -67,14 +67,14 @@ class query_engine(object):
 # Itype in query string, rtype is ranked item ids.
 def main():
     print "Initializing data..."
-    query_test = query_engine('test.json')
-    print query_test.data[1]['item']
-    # while True:
-    #     inputs = raw_input("Input what you want to search: ")
-    #     query_test.query_parsing(inputs)
-    #     print "Results of", inputs, ":"
-    #     print query_test.query_processing()
-    #     # print query_test.item_ids
+    query_test = query_engine('dm_modified.json')
+    # print query_test.data[1]['item']
+    while True:
+        inputs = raw_input("Input what you want to search: ")
+        query_test.query_parsing(inputs)
+        print "Results of", inputs, ":"
+        print query_test.query_processing()
+        # print query_test.item_ids
 
 if __name__ == '__main__':
     main()
