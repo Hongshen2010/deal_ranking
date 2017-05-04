@@ -80,7 +80,7 @@ def main():
 
     # tests
     # print tfidf_test.word_dict
-    print tfidf_test.word_space
+    print tfidf_test.word_dict
     # print tfidf_test.word_dict[0]
     # print tfidf_test.word_dict[1]
     # print tfidf_test.word_dict[2]
